@@ -1,6 +1,28 @@
-# Linux Servers
+# Scraping data metrics
+global:
+  scrape_interval:     5s
+  evaluation_interval: 5s
+
 # This config scraping job setting
 scrape_configs:
-  - job_name: "Node Exporter"
+  - job_name: "Services Nodes"
     static_configs:
-      - targets: ["10.20.20.101:9100"]
+      - targets:
+          - "10.20.20.100:9100"
+          - "10.20.20.101:9100"
+
+  - job_name: "Controller Nodes"
+    static_configs:
+      - targets:
+          - "10.20.20.5:9100"
+          - "10.20.20.6:9100"
+          - "10.20.20.7:9100"
+
+  - job_name: "Compute Nodes"
+    static_configs:
+      - targets:
+          - "10.20.20.10:9100"
+          - "10.20.20.11:9100"
+          - "10.20.20.12:9100"
+          - "10.20.20.13:9100"
+        
