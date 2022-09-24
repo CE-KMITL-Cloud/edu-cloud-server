@@ -12,7 +12,7 @@ services:
     - "9090:9090"
     user: nobody
     volumes:
-    # - "./config/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro"
+    - "./config/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro"
     # - "./config/prometheus/targets.yml:/etc/prometheus/targets.yml:ro"
     # - "./config/prometheus/rules:/etc/prometheus/rules"
     - "prometheus_data:/prometheus"
