@@ -1,15 +1,6 @@
 version: "3.8"
 
 services:
-  monitor:
-    container_name: uptime-kuma
-    image: louislam/uptime-kuma:1
-    restart: always
-    volumes:
-      - uptime-kuma:/app/data
-    ports:
-      - "3010:3001"
-
   ghost:
     image: ghost:latest
     restart: always
@@ -40,7 +31,5 @@ services:
 
 
 volumes:
-  uptime-kuma:
-    driver: local
   data-volumes:
   content-volumes:

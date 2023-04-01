@@ -1,6 +1,6 @@
-version: '3'
+version: '3.8'
 services:
-  app:
+  proxy:
     image: 'jc21/nginx-proxy-manager:latest'
     hostname: "ng-proxy"
     container_name: ng-proxy
@@ -12,5 +12,9 @@ services:
       - '81:81'
       - '443:443'
     volumes:
-      - ./data:/data
-      - ./letsencrypt:/etc/letsencrypt
+      - proxy-data:/data
+      - proxy-cert:/etc/letsencrypt
+
+volumes:
+  proxy-data:
+  proxy-cert:
