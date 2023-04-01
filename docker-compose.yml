@@ -1,0 +1,46 @@
+version: "3.8"
+
+services:
+  monitor:
+    container_name: uptime-kuma
+    image: louislam/uptime-kuma:1
+    restart: always
+    volumes:
+      - uptime-kuma:/app/data
+    ports:
+      - "3010:3001"
+
+  ghost:
+    image: ghost:latest
+    restart: always
+    ports:
+      - "3020:2368"
+    depends_on:
+      - database
+    environment:
+      url: https://blog.ce.kmitl.cloud
+      database__client: mysql
+      database__connection__host: database
+      database__connection__user: ghost
+      database__connection__password: Admin@2022
+      database__connection__database: ghostdb
+    volumes:
+      - content-volumes:/var/lib/ghost/content
+
+  database:
+    image: mariadb:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: AdMin@2022
+      MYSQL_USER: ghost
+      MYSQL_PASSWORD: Admin@2022
+      MYSQL_DATABASE: ghostdb
+    volumes:
+      - data-volumes:/var/lib/mysql
+
+
+volumes:
+  uptime-kuma:
+    driver: local
+  data-volumes:
+  content-volumes:

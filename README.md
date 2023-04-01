@@ -1,2 +1,4 @@
 # edu-cloud-server
-[] Provide automation script
+[ x ] Provide automation 
+[ x ] Uptime kuma
+[ x ] Ghost for CE Cloud Blog
