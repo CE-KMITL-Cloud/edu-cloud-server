@@ -4,7 +4,9 @@
 #!/bin/sh
 
 echo "Run Kong API Gatway..."
-docker compose up -d -f kong-gw/docker-compose.yml
+cd kong-gw/
+docker compose up -d docker-compose.yml
 
 echo "Run Service ..."
+cd ..
 docker compose up -d 

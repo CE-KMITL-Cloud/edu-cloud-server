@@ -10,9 +10,12 @@ jobs:
     runs-on: [self-hosted, Linux, X64, prd] 
     steps:
       - uses: actions/checkout@v3
-      - name: Run API Gateway
-        run: docker compose up --force-recreate --build --detach -f kong-gw/docker-compose.yml
-      - name: Run Services
-        run: docker compose up --force-recreate --build --detach
+      - name: Run Bash Script
+        run: bash ./run.sh
+        shell: bash
+      # - name: Run API Gateway
+      #   run: docker compose up --force-recreate --build --detach -f kong-gw/docker-compose.yml
+      # - name: Run Services
+      #   run: docker compose up --force-recreate --build --detach
       - name: Prune Docker Images
         run: docker image prune -a -f
