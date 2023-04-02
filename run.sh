@@ -4,12 +4,11 @@
 #!/bin/sh
 
 echo "Run Kong API Gatway..."
-pwd
 cd ./kong-gw/
-docker compose up -d docker-compose.yml
+docker compose up -d
+echo "Run Success!!"
 
 echo "Run Service ..."
-pwd
 cd ..
-pwd
 docker compose up -d 
+echo "Run Success!!"
